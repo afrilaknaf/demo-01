@@ -36,6 +36,12 @@ const blog = require("./src/routes/blog.routes")
 
 app.use("/blog",blog)
 
+
+//premium 
+const premium = require("./src/routes/premium.routes")
+
+app.use("/premium",premium)
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });

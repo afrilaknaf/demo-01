@@ -12,3 +12,10 @@ exports.getproducts = async(req,res)=>{
     res.json({msg:"data getting successfully",data})
 }
 
+exports.quickview = async(req,res)=>{
+    let {id} = req.params 
+    const data = await Products.findById(id)
+    res.json({msg:"Data products Get Successfullly",data})
+}
+
+

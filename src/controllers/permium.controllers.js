@@ -10,3 +10,9 @@ exports.getpremium = async(req,res)=>{
     let data = await Premium.find()
     res.json({msg:"Data get Successfully",data})
 }
+
+exports.getidpremium = async(req,res)=>{
+    let {id} = req.params 
+    const data = await Premium.findById(id)
+    res.json({msg:"Products Getting successfully",data})
+}

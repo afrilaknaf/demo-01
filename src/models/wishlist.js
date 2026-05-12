@@ -15,8 +15,10 @@ const wishlist_Schema = mongoose.Schema({
         enum:["premium","normal"],
         required:true
     }
-},{timeStamps:true})
+},{timestamps:true})
+
+wishlist_Schema.index({userId:1,productId:1,producttype:1},{ unique:true })
 
 const wishlist = new mongoose.model("wishlist",wishlist_Schema)
 
-exports.modules =wishlist
+module.exports = wishlist

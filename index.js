@@ -42,6 +42,12 @@ const premium = require("./src/routes/premium.routes")
 
 app.use("/premium",premium)
 
+//wishlist
+
+const wishlist = require("./src/routes/wishlist.routes")
+
+app.use("/wishlist",wishlist)
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });

@@ -26,7 +26,7 @@ app.use("/api", authRoutes)
 
 const products = require("./src/routes/products.routes")
 
-app.use("/products",products)
+app.use("/products", products)
 
 //Prdoucts 
 
@@ -34,19 +34,19 @@ app.use("/products",products)
 
 const blog = require("./src/routes/blog.routes")
 
-app.use("/blog",blog)
+app.use("/blog", blog)
 
 
 //premium 
 const premium = require("./src/routes/premium.routes")
 
-app.use("/premium",premium)
+app.use("/premium", premium)
 
 //wishlist
 
 const wishlist = require("./src/routes/wishlist.routes")
 
-app.use("/wishlist",wishlist)
+app.use("/wishlist", wishlist)
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

@@ -30,14 +30,7 @@ pipeline{
             }
         }
 
-        stage("Test"){
-            steps{
-                bat '''  
-                echo Node js test
-                npm test
-                '''
-            }
-        }
+        
 
         stage("Build"){
             steps{

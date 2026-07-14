@@ -35,7 +35,7 @@ pipeline{
 
         stage("Build"){
             steps{
-                bat --check node index.js
+                bat  node --check index.js
             }
         }
     }

@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages{
-        stage("Build"){
+        stage("Checkout"){
             steps{
                 git branch : "main",
                 url : "https://github.com/afrilaknaf/Jenkins-backend-demo-project.git"

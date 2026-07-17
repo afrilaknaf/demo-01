@@ -54,6 +54,7 @@ pipeline{
     post{
         success{
             bat "echo All Stage are Successfully"
+            build job : "demo-02-frontend"
         }
         failure{
             bat "echo One Stage is failed i will run"

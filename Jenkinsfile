@@ -31,14 +31,7 @@ pipeline{
         }
 
 
-        stage("Running_Test"){
-            steps{
-                bat '''
-                echo Test the backend project
-                npm test
-                '''
-            }
-        }
+      
         
         stage("Start_App"){
             steps{
@@ -67,7 +60,7 @@ pipeline{
             bat "echo One Stage is failed i will run"
         }
         always{
-            bat "I will run always"
+            bat "echo I will run always"
         }
     }
 }

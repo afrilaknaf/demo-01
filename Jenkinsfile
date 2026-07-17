@@ -37,7 +37,6 @@ pipeline{
             steps{
                 bat '''
                 echo Start the Node App
-                // node index.js
                 '''
             }
         }

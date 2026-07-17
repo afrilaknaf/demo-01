@@ -1,58 +1,73 @@
 pipeline{
     agent any
+
+
     stages{
-        stage("Checkout"){
+    
+    
+        stage("Git_Checkout"){
             steps{
                 git branch : "main",
-                url : "https://github.com/afrilaknaf/Jenkins-backend-demo-project.git"
+                url : "https://github.com/afrilaknaf/demo-01.git"
             }
         }
 
-        stage("Validate"){
+        stage("Check_Node"){
             steps{
-                bat ''' 
-                if exist package.json (
-                    echo Test Build successfully passed
-                ) else (
-                    echo Test Build Successfully failed
-                    exit /b 1
-                )
-                 '''
-            }
-        }
-
-        stage("Install"){
-            steps{
-                bat '''  
-                echo Node js install
-                npm install
+                bat '''
+                echo Check the version of node js is installed master system
+                node -v
                 '''
             }
         }
 
-        
-
-        stage("Build"){
+        stage("Install_Package"){
             steps{
-                bat  '''  
-                echo Node js Build
-                node --check index.js
+                bat '''
+                echo INstall Package inside the pipeline 
+                npm ci
+                '''
+            }
+        }
+
+
+        stage("Running_Test"){
+            steps{
+                bat '''
+                echo Test the backend project
+                npm test
+                '''
+            }
+        }
+        
+        stage("Start_App"){
+            steps{
+                bat '''
+                echo Start the Node App
+                node index.js
+                '''
+            }
+        }
+
+        stage("Backend_Start"){
+            steps{
+                bat '''
+                echo backend App was Started
                 '''
             }
         }
     }
 
-    post {
-        success {
-            echo "All stages completed successfully"
-        }
 
-        failure {
-            echo "Pipeline failed. Check the console output"
+    post{
+        success{
+            bat "echo All Stage are Successfully"
         }
-
-        always {
-            echo "Pipeline execution finished"
+        failure{
+            bat "echo One Stage is failed i will run"
+        }
+        always{
+            bat "I will run always"
         }
     }
 }
